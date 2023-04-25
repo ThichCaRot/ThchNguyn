@@ -1,51 +1,40 @@
 package com.neko.thchnguyn;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
-    private WebView mywebView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mywebView=(WebView) findViewById(R.id.webview);
-        mywebView.setWebViewClient(new WebViewClient());
-        mywebView.setWebChromeClient(new WebChromeClient());
-        mywebView.getSettings().setJavaScriptEnabled(true);
-        mywebView.getSettings().setDomStorageEnabled(true);
-        mywebView.loadUrl("https://lightraptor2310.github.io/n-eko.github.io/");
-        WebSettings webSettings=mywebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
+
+        TextView username = (TextView) findViewById(R.id.username);
+        TextView password = (TextView) findViewById(R.id.password);
+
+        Button loginbtn = (Button) findViewById(R.id.loginbtn);
+
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+                    goToAnActivity();
+                } else
+                    Toast.makeText(MainActivity.this, "LOGIN FAIL!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public class mywebClient extends WebViewClient{
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon){
-            super.onPageStarted(view,url,favicon);
-        }
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view,String url){
-            view.loadUrl(url);
-            return true;
-        }
-    }
-
-    @Override
-    public void onBackPressed(){
-        if(mywebView.canGoBack()) {
-            mywebView.goBack();
-        }
-        else{
-            super.onBackPressed();
-        }
+    public void goToAnActivity() {
+        Intent intent = new Intent(this, MainScreen.class);
+        startActivity(intent);
     }
 }
