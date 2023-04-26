@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Thích Nguyên</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="signuphere">Create Account</string>
+    <string name="name">Fullname</string>
+    <string name="email">Email</string>
+    <string name="signup">Sign Up</string>
+    <string name="loginhere">Already Have Account? <u>Login</u></string>
 </resources>
