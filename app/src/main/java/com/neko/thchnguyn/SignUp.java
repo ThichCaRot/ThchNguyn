@@ -72,7 +72,7 @@ public class SignUp extends AppCompatActivity {
                             data[1] = username;
                             data[2] = password;
                             data[3] = email;
-                            PutData putData = new PutData("http://192.168.0.156/log/signup.php","POST",field, data);
+                            PutData putData = new PutData("https://kazephake.000webhostapp.com/signup.php","POST",field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     PGRS.setVisibility(View.GONE);
