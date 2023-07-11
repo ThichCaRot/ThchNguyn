@@ -23,7 +23,7 @@ public class MainScreen extends AppCompatActivity {
         mywebView.setWebChromeClient(new WebChromeClient());
         mywebView.getSettings().setJavaScriptEnabled(true);
         mywebView.getSettings().setDomStorageEnabled(true);
-        mywebView.loadUrl("http://kazephake.wordpress.com/");
+        mywebView.loadUrl("http://192.168.0.156:5000");
         WebSettings webSettings=mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
